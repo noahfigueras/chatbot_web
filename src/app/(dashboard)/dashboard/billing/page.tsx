@@ -80,7 +80,7 @@ function BillingPageContent() {
                 </p>
                 <p className="text-sm text-text-muted mt-1">
                   {isPro
-                    ? `€50/month — ${sub?.current_period_end ? `Renews ${new Date(sub.current_period_end).toLocaleDateString()}` : ""}`
+                    ? `€20/month — ${sub?.current_period_end ? `Renews ${new Date(sub.current_period_end).toLocaleDateString()}` : ""}`
                     : "5 chatbots, 500 messages/bot/mo — no card needed"}
                 </p>
               </div>
@@ -97,7 +97,7 @@ function BillingPageContent() {
                   disabled={upgrading}
                   className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-purple text-white text-sm font-medium disabled:opacity-50"
                 >
-                  {upgrading ? "Redirecting..." : "Upgrade to Pro — €50/mo"}
+                  {upgrading ? "Redirecting..." : "Upgrade to Pro — €20/mo"}
                 </button>
               )}
             </div>

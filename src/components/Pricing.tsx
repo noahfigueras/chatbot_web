@@ -22,7 +22,7 @@ const tiers = [
   },
   {
     name: "Pro",
-    price: "€50",
+    price: "€20",
     period: "/mo",
     desc: "For growing businesses.",
     features: [
