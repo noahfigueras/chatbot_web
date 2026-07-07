@@ -27,9 +27,9 @@ export async function POST(req: Request) {
     );
   }
 
-  if (!file.name.endsWith(".md")) {
+  if (!file.name.endsWith(".md") && !file.name.endsWith(".txt")) {
     return NextResponse.json(
-      { error: "Only .md files are supported" },
+      { error: "Only .md and .txt files are supported" },
       { status: 400 }
     );
   }

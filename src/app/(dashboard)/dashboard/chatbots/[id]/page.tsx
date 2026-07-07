@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import GuideCard from "@/components/GuideCard";
 
 interface Chatbot {
   id: string;
@@ -339,6 +340,25 @@ export default function ChatbotDetailPage() {
 
       <div className="glass-card rounded-xl p-6 mb-8">
         <h2 className="text-lg font-semibold text-white mb-4">Knowledge Files</h2>
+
+        <div className="mb-4">
+          <GuideCard title="What are system prompts & knowledge files?">
+            <p>
+              <span className="text-white/70">System prompt</span> — defines your chatbot&apos;s personality and behavior rules.
+              Written once, it guides every conversation.
+            </p>
+            <p>
+              <span className="text-white/70">Knowledge files</span> — reference information the AI reads when answering
+              questions. The AI searches across all files automatically.
+            </p>
+            <p className="font-medium text-neon-cyan/80">Accepted formats:</p>
+            <ul className="list-disc pl-4 space-y-0.5">
+              <li><span className="text-white/70">.md</span> — Markdown with headings</li>
+              <li><span className="text-white/70">.txt</span> — Plain text</li>
+            </ul>
+          </GuideCard>
+        </div>
+
         {knowledgeFiles.length === 0 ? (
           <p className="text-sm text-text-muted mb-4">No knowledge files uploaded yet.</p>
         ) : (
@@ -382,8 +402,8 @@ export default function ChatbotDetailPage() {
               <option value="system_prompt">System Prompt</option>
             </select>
             <label className={`px-4 py-2 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-purple text-white text-sm font-medium ${uploadingFile ? "opacity-50" : ""}`}>
-              {uploadingFile ? "Uploading..." : "Choose .md file"}
-              <input type="file" accept=".md" onChange={handleUpload} disabled={uploadingFile} className="hidden" />
+              {uploadingFile ? "Uploading..." : "Choose .md / .txt"}
+              <input type="file" accept=".md,.txt" onChange={handleUpload} disabled={uploadingFile} className="hidden" />
             </label>
           </div>
         </div>
@@ -399,12 +419,20 @@ export default function ChatbotDetailPage() {
             {channels.map((ch) => (
               <div key={ch.id} className="flex items-center justify-between bg-surface-2 rounded-lg px-4 py-3 border border-border-cyan">
                 <div className="flex items-center gap-3">
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold ${
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
                     ch.channel_type === "telegram"
                       ? "bg-sky-500/10 text-sky-400 border border-sky-500/20"
                       : "bg-neon-green/10 text-neon-green border border-neon-green/20"
                   }`}>
-                    {ch.channel_type === "telegram" ? "TG" : "WA"}
+                    {ch.channel_type === "telegram" ? (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                        <path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                      </svg>
+                    ) : (
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                        <path d="M12.048 0C5.46 0 .144 5.316.144 11.904c0 2.112.552 4.176 1.608 5.988L0 24l6.336-1.632c1.764.972 3.756 1.488 5.712 1.488 6.588 0 11.904-5.316 11.904-11.904S18.636 0 12.048 0zm6.096 16.332c-.276.78-1.632 1.488-2.664 1.572-.708.06-1.464.24-4.992-1.068-4.092-1.512-6.48-5.076-6.672-5.316-.204-.252-1.596-2.124-1.596-4.056s1.008-2.88 1.368-3.276c.36-.396.78-.516 1.056-.516.264 0 .528.012.768.012.24 0 .648-.084 1.008.756.36.84 1.224 2.904 1.332 3.108.108.204.18.444.036.72-.144.264-.216.384-.432.612-.216.228-.444.504-.636.672-.216.192-.432.408-.192.804.24.396 1.068 1.764 2.292 2.856 1.584 1.404 2.904 1.848 3.324 2.052.42.204.66.168.9-.096.24-.264 1.032-1.2 1.308-1.62.276-.42.552-.348.924-.204.384.144 2.412 1.188 2.832 1.416.408.216.684.324.78.504.108.18.084.948-.192 1.728z"/>
+                      </svg>
+                    )}
                   </div>
                   <div>
                     <p className="text-sm text-white font-medium capitalize">{ch.channel_type}</p>
@@ -439,7 +467,12 @@ export default function ChatbotDetailPage() {
         )}
 
         <div className="border-t border-border-cyan pt-4 mb-4">
-          <h3 className="text-sm font-medium text-white mb-3">Connect Telegram</h3>
+          <h3 className="text-sm font-medium text-white mb-3 flex items-center gap-2">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-sky-400">
+              <path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+            Connect Telegram
+          </h3>
           <p className="text-xs text-text-muted mb-3">
             Create a bot via <a href="https://t.me/BotFather" target="_blank" rel="noopener noreferrer" className="text-neon-cyan underline">@BotFather</a> on Telegram, then paste the token below.
           </p>
@@ -462,7 +495,12 @@ export default function ChatbotDetailPage() {
         </div>
 
         <div className="border-t border-border-cyan pt-4">
-          <h3 className="text-sm font-medium text-white mb-3">Connect WhatsApp</h3>
+          <h3 className="text-sm font-medium text-white mb-3 flex items-center gap-2">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-neon-green">
+              <path d="M12.048 0C5.46 0 .144 5.316.144 11.904c0 2.112.552 4.176 1.608 5.988L0 24l6.336-1.632c1.764.972 3.756 1.488 5.712 1.488 6.588 0 11.904-5.316 11.904-11.904S18.636 0 12.048 0zm6.096 16.332c-.276.78-1.632 1.488-2.664 1.572-.708.06-1.464.24-4.992-1.068-4.092-1.512-6.48-5.076-6.672-5.316-.204-.252-1.596-2.124-1.596-4.056s1.008-2.88 1.368-3.276c.36-.396.78-.516 1.056-.516.264 0 .528.012.768.012.24 0 .648-.084 1.008.756.36.84 1.224 2.904 1.332 3.108.108.204.18.444.036.72-.144.264-.216.384-.432.612-.216.228-.444.504-.636.672-.216.192-.432.408-.192.804.24.396 1.068 1.764 2.292 2.856 1.584 1.404 2.904 1.848 3.324 2.052.42.204.66.168.9-.096.24-.264 1.032-1.2 1.308-1.62.276-.42.552-.348.924-.204.384.144 2.412 1.188 2.832 1.416.408.216.684.324.78.504.108.18.084.948-.192 1.728z"/>
+            </svg>
+            Connect WhatsApp
+          </h3>
           <p className="text-xs text-text-muted mb-3">
             Enter your WhatsApp Business credentials.
           </p>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import GuideCard from "@/components/GuideCard";
 
 export default function NewChatbotPage() {
   const router = useRouter();
@@ -188,6 +189,30 @@ export default function NewChatbotPage() {
               System Prompt <span className="text-neon-cyan">*</span>
             </label>
 
+            <div className="mb-3">
+              <GuideCard title="What is a system prompt?">
+                <p>
+                  The system prompt is the core instruction that defines your chatbot&apos;s personality,
+                  behavior, and knowledge boundaries. It&apos;s sent to the AI with every conversation.
+                </p>
+                <p className="font-medium text-neon-cyan/80">Best practices:</p>
+                <ul className="list-disc pl-4 space-y-0.5">
+                  <li>Start with <span className="text-white/70">&quot;You are a...&quot;</span> to define the role</li>
+                  <li>Set the tone: professional, friendly, concise, etc.</li>
+                  <li>Include response format rules (e.g. &quot;Always greet the user&quot;)</li>
+                  <li>Define boundaries — what it should <span className="text-white/70">not</span> do</li>
+                </ul>
+                <p className="font-medium text-neon-cyan/80">Example:</p>
+                <pre className="bg-surface-2 rounded p-2 text-[11px] text-text-muted leading-relaxed whitespace-pre-wrap font-mono">
+{`You are a customer support agent for Acme Corp.
+Be friendly, professional, and concise.
+Always introduce yourself.
+If you don't know something, say so — never invent answers.
+For refunds, ask for the order number.`}
+                </pre>
+              </GuideCard>
+            </div>
+
             <div className="flex items-center gap-2 mb-3">
               <button
                 onClick={() => { setSystemMode("write"); setSystemFile(null); }}
@@ -199,7 +224,7 @@ export default function NewChatbotPage() {
                 onClick={() => { setSystemMode("upload"); setSystemText(""); }}
                 className={`text-xs px-3 py-1.5 rounded border transition-colors ${systemMode === "upload" ? "bg-neon-cyan/10 text-neon-cyan border-neon-cyan/30" : "text-text-muted border-border-cyan hover:text-text-primary"}`}
               >
-                Upload .md
+                Upload .md / .txt
               </button>
             </div>
 
@@ -227,8 +252,8 @@ export default function NewChatbotPage() {
                 <svg className="w-8 h-8 text-text-dim mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                 </svg>
-                <p className="text-sm text-text-muted">Click to upload system_prompt.md</p>
-                <input type="file" accept=".md" onChange={(e) => setSystemFile(e.target.files?.[0] || null)} className="hidden" />
+                <p className="text-sm text-text-muted">Click to upload system_prompt.md or .txt</p>
+                <input type="file" accept=".md,.txt" onChange={(e) => setSystemFile(e.target.files?.[0] || null)} className="hidden" />
               </label>
             )}
           </div>
@@ -237,6 +262,34 @@ export default function NewChatbotPage() {
             <label className="block text-sm text-text-muted mb-2">
               Knowledge Files <span className="text-text-dim">(optional)</span>
             </label>
+
+            <div className="mb-3">
+              <GuideCard title="What are knowledge files?">
+                <p>
+                  Knowledge files give your chatbot reference information to draw from. The AI reads
+                  these files when answering questions — like giving it a manual to look things up.
+                </p>
+                <p className="font-medium text-neon-cyan/80">Tips:</p>
+                <ul className="list-disc pl-4 space-y-0.5">
+                  <li>Use markdown headings (<span className="text-white/70">##</span>, <span className="text-white/70">###</span>) to organize topics</li>
+                  <li>One topic per file — the AI searches across all files</li>
+                  <li>Keep information factual and structured</li>
+                  <li>Accepted formats: <span className="text-white/70">.md</span> (Markdown) and <span className="text-white/70">.txt</span> (plain text)</li>
+                </ul>
+                <p className="font-medium text-neon-cyan/80">Example structure in a .md file:</p>
+                <pre className="bg-surface-2 rounded p-2 text-[11px] text-text-muted leading-relaxed whitespace-pre-wrap font-mono">
+{`## Products
+
+- ChatBot Pro: €20/month, 15 chatbots
+- Knowledge storage: 100 MB
+
+## Shipping
+
+- All plans are digital delivery — instant access
+- No physical shipping`}
+                </pre>
+              </GuideCard>
+            </div>
 
             <div className="flex items-center gap-2 mb-3">
               <button
@@ -249,7 +302,7 @@ export default function NewChatbotPage() {
                 onClick={() => { setKnowledgeMode("upload"); setKnowledgeText(""); }}
                 className={`text-xs px-3 py-1.5 rounded border transition-colors ${knowledgeMode === "upload" ? "bg-neon-cyan/10 text-neon-cyan border-neon-cyan/30" : "text-text-muted border-border-cyan hover:text-text-primary"}`}
               >
-                Upload .md files
+                Upload .md / .txt files
               </button>
             </div>
 
@@ -285,7 +338,7 @@ export default function NewChatbotPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                   </svg>
                   <p className="text-sm text-text-muted">Add knowledge files</p>
-                  <input type="file" accept=".md" multiple onChange={handleAddKnowledge} className="hidden" />
+                  <input type="file" accept=".md,.txt" multiple onChange={handleAddKnowledge} className="hidden" />
                 </label>
               </>
             )}
