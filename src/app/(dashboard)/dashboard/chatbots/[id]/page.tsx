@@ -21,6 +21,7 @@ interface KnowledgeFile {
   file_type: string;
   storage_path: string;
   created_at: string;
+  content?: string;
 }
 
 interface Channel {
@@ -44,6 +45,9 @@ export default function ChatbotDetailPage() {
   const [uploadingFile, setUploadingFile] = useState(false);
   const [uploadFileType, setUploadFileType] = useState<"system_prompt" | "knowledge">("knowledge");
   const [deletingFile, setDeletingFile] = useState<string | null>(null);
+  const [editingFileId, setEditingFileId] = useState<string | null>(null);
+  const [editingContent, setEditingContent] = useState("");
+  const [savingEdit, setSavingEdit] = useState(false);
   const [stopping, setStopping] = useState(false);
   const [destroying, setDestroying] = useState(false);
   const [connectingTelegram, setConnectingTelegram] = useState(false);
@@ -107,6 +111,34 @@ export default function ChatbotDetailPage() {
     const res = await fetch(`/api/chatbots/${params.id}`, { method: "DELETE" });
     if (res.ok) router.push("/dashboard/chatbots");
     setDestroying(false);
+  };
+
+  const handleEditFile = (file: KnowledgeFile) => {
+    setEditingFileId(file.id);
+    setEditingContent(file.content || "");
+  };
+
+  const handleCancelEdit = () => {
+    setEditingFileId(null);
+    setEditingContent("");
+  };
+
+  const handleSaveEdit = async (fileId: string) => {
+    setSavingEdit(true);
+    const res = await fetch(`/api/chatbots/${params.id}/knowledge/${fileId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ content: editingContent }),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      setKnowledgeFiles((prev) =>
+        prev.map((f) => (f.id === fileId ? { ...f, content: data.file.content } : f))
+      );
+      setEditingFileId(null);
+      setEditingContent("");
+    }
+    setSavingEdit(false);
   };
 
   const handleDeleteFile = async (fileId: string) => {
@@ -364,27 +396,62 @@ export default function ChatbotDetailPage() {
         ) : (
           <div className="space-y-2 mb-6">
             {knowledgeFiles.map((f) => (
-              <div key={f.id} className="flex items-center justify-between bg-surface-2 rounded-lg px-4 py-3 border border-border-cyan">
-                <div className="flex items-center gap-3 min-w-0">
-                  <svg className="w-5 h-5 text-neon-cyan shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  <span className="text-sm text-text-primary truncate">{f.file_name}</span>
-                  <span className={`text-xs px-2 py-0.5 rounded shrink-0 ${
-                    f.file_type === "system_prompt"
-                      ? "bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20"
-                      : "bg-neon-purple/10 text-neon-purple border border-neon-purple/20"
-                  }`}>
-                    {f.file_type === "system_prompt" ? "system" : "knowledge"}
-                  </span>
+              <div key={f.id}>
+                <div className="flex items-center justify-between bg-surface-2 rounded-lg px-4 py-3 border border-border-cyan">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <svg className="w-5 h-5 text-neon-cyan shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span className="text-sm text-text-primary truncate">{f.file_name}</span>
+                    <span className={`text-xs px-2 py-0.5 rounded shrink-0 ${
+                      f.file_type === "system_prompt"
+                        ? "bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20"
+                        : "bg-neon-purple/10 text-neon-purple border border-neon-purple/20"
+                    }`}>
+                      {f.file_type === "system_prompt" ? "system" : "knowledge"}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => handleEditFile(f)}
+                      className="text-xs text-neon-cyan hover:text-neon-cyan/80 transition-colors px-2 py-1 rounded border border-neon-cyan/20 hover:border-neon-cyan/40"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDeleteFile(f.id)}
+                      disabled={deletingFile === f.id}
+                      className="text-xs text-text-muted hover:text-red-400 transition-colors px-2 py-1 rounded border border-transparent hover:border-red-400/30 shrink-0 disabled:opacity-50"
+                    >
+                      {deletingFile === f.id ? "..." : "Delete"}
+                    </button>
+                  </div>
                 </div>
-                <button
-                  onClick={() => handleDeleteFile(f.id)}
-                  disabled={deletingFile === f.id}
-                  className="text-xs text-text-muted hover:text-red-400 transition-colors px-2 py-1 rounded border border-transparent hover:border-red-400/30 shrink-0 ml-3 disabled:opacity-50"
-                >
-                  {deletingFile === f.id ? "..." : "Delete"}
-                </button>
+                {editingFileId === f.id && (
+                  <div className="mt-2 bg-surface-2 rounded-lg border border-border-cyan overflow-hidden">
+                    <textarea
+                      value={editingContent}
+                      onChange={(e) => setEditingContent(e.target.value)}
+                      rows={10}
+                      className="w-full px-4 py-3 bg-transparent text-text-primary text-sm font-mono focus:outline-none resize-none"
+                    />
+                    <div className="flex items-center justify-end gap-2 px-4 py-2 border-t border-border-cyan">
+                      <button
+                        onClick={handleCancelEdit}
+                        className="text-xs text-text-muted hover:text-white transition-colors px-3 py-1.5"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={() => handleSaveEdit(f.id)}
+                        disabled={savingEdit}
+                        className="text-xs px-3 py-1.5 rounded bg-gradient-to-r from-neon-cyan to-neon-purple text-white font-medium disabled:opacity-50"
+                      >
+                        {savingEdit ? "Saving..." : "Save"}
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>

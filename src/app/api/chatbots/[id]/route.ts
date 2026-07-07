@@ -23,7 +23,7 @@ export async function GET(
 
   const { data: knowledgeFiles } = await supabase
     .from("knowledge_files")
-    .select("id, file_name, file_type, storage_path, created_at")
+    .select("id, file_name, file_type, storage_path, created_at, content")
     .eq("chatbot_id", id);
 
   return NextResponse.json({ chatbot, knowledgeFiles });

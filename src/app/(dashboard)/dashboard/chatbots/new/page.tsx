@@ -10,10 +10,26 @@ export default function NewChatbotPage() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [systemFile, setSystemFile] = useState<File | null>(null);
-  const [systemText, setSystemText] = useState("");
+  const [systemText, setSystemText] = useState(
+`You are a helpful AI assistant for {company name}. You are professional, friendly, and concise.
+Always introduce yourself. If you don't know something, be honest.
+Use the knowledge files to answer product-specific questions.`
+  );
   const [systemMode, setSystemMode] = useState<"upload" | "write">("write");
   const [knowledgeFiles, setKnowledgeFiles] = useState<File[]>([]);
-  const [knowledgeText, setKnowledgeText] = useState("");
+  const [knowledgeText, setKnowledgeText] = useState(
+`## About
+
+{Describe your company here}
+
+## Products & Services
+
+{List your products here}
+
+## FAQ
+
+{Q&A pairs here}`
+  );
   const [knowledgeMode, setKnowledgeMode] = useState<"upload" | "write">("upload");
   const [creating, setCreating] = useState(false);
   const [error, setError] = useState("");
