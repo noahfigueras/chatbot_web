@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useUser } from "@/lib/supabase/user";
 import { useSearchParams } from "next/navigation";
 
@@ -10,7 +10,7 @@ interface SubscriptionInfo {
   current_period_end: string | null;
 }
 
-export default function BillingPage() {
+function BillingPageContent() {
   const { user } = useUser();
   const searchParams = useSearchParams();
   const [sub, setSub] = useState<SubscriptionInfo | null>(null);
@@ -155,5 +155,13 @@ export default function BillingPage() {
         </>
       )}
     </div>
+  );
+}
+
+export default function BillingPage() {
+  return (
+    <Suspense fallback={<div className="p-6 sm:p-8 lg:p-10"><p className="text-text-muted">Loading...</p></div>}>
+      <BillingPageContent />
+    </Suspense>
   );
 }
