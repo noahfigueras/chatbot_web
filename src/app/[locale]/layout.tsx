@@ -28,12 +28,40 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const lang = await getLocale();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ChatBot Pro",
+    "description":
+      "Train a custom AI chatbot from your files and links. Deploy to WhatsApp, Telegram, Slack, and your website — free, no credit card required.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": "https://chatbots.redfortlabs.xyz",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "description": "Free tier available with 5 chatbots and 500 messages each",
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "RedFortLabs",
+      "url": "https://redfortlabs.xyz",
+    },
+  };
+
   return (
     <html
       lang={lang}
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="min-h-screen bg-background text-text-primary">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>

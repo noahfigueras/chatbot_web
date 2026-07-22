@@ -75,28 +75,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "ChatBot Pro",
-    "description":
-      "Train a custom AI chatbot from your files and links. Deploy to WhatsApp, Telegram, Slack, and your website — free, no credit card required.",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "url": "https://chatbots.redfortlabs.xyz",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "EUR",
-      "description": "Free tier available with 5 chatbots and 500 messages each",
-    },
-    "author": {
-      "@type": "Organization",
-      "name": "RedFortLabs",
-      "url": "https://redfortlabs.xyz",
-    },
-  };
-
   return (
     <>
       <Script
@@ -111,10 +89,6 @@ export default function RootLayout({
           gtag('config', 'G-YS26148SKF');
         `}
       </Script>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       {children}
     </>
   );
