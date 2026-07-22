@@ -36,6 +36,18 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-r from-neon-purple to-neon-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
               <a
+                href="https://t.me/chatBot_test_1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group px-8 py-4 rounded-xl border border-neon-cyan/30 hover:border-neon-cyan/60 text-neon-cyan font-semibold text-lg transition-all duration-300 text-center inline-flex items-center justify-center gap-2"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {t("demo")}
+              </a>
+              <a
                 href="#features"
                 className="px-8 py-4 rounded-xl border border-border-cyan hover:border-neon-cyan/50 text-white font-semibold text-lg transition-all duration-300 text-center"
               >
