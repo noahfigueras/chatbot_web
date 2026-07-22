@@ -3,6 +3,7 @@
     "features": "Features",
     "howItWorks": "How It Works",
     "pricing": "Pricing",
+    "blog": "Blog",
     "login": "Log In",
     "signup": "Get Started",
     "dashboard": "Dashboard"
@@ -109,7 +110,9 @@
   "CTA": {
     "title": "Your first chatbot is free. No credit card needed.",
     "subtitle": "Start building your AI assistant today. Create, train, and deploy in minutes — completely free.",
-    "cta": "Create Your Chatbot"
+    "cta": "Create Your Chatbot",
+    "viewPricing": "View Pricing",
+    "reassurance": "No credit card required. Free forever plan available."
   },
   "Footer": {
     "description": "Train a custom AI chatbot with your files, links, and social media. Deploy anywhere with one click.",

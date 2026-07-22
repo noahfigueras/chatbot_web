@@ -3,6 +3,7 @@
     "features": "Funcionalidades",
     "howItWorks": "Cómo Funciona",
     "pricing": "Precios",
+    "blog": "Blog",
     "login": "Iniciar Sesión",
     "signup": "Comenzar",
     "dashboard": "Panel"
@@ -109,7 +110,9 @@
   "CTA": {
     "title": "Tu primer chatbot es gratis. Sin necesidad de tarjeta de crédito.",
     "subtitle": "Comienza a construir tu asistente IA hoy. Crea, entrena y despliega en minutos — completamente gratis.",
-    "cta": "Crea Tu Chatbot"
+    "cta": "Crea Tu Chatbot",
+    "viewPricing": "Ver Precios",
+    "reassurance": "Sin tarjeta de crédito. Plan gratuito disponible para siempre."
   },
   "Footer": {
     "description": "Entrena un chatbot IA personalizado con tus archivos, enlaces y redes sociales. Despliega en cualquier lugar con un clic.",

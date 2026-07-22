@@ -36,12 +36,12 @@ export default function CTA() {
             href="#pricing"
             className="px-10 py-4 rounded-xl border border-border-cyan hover:border-neon-cyan/50 text-white font-semibold text-lg transition-all duration-300"
           >
-            View Pricing
+            {t("viewPricing")}
           </a>
         </div>
 
         <p className="text-sm text-text-muted">
-          No credit card required. Free forever plan available.
+          {t("reassurance")}
         </p>
       </div>
     </section>

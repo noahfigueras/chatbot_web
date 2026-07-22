@@ -21,7 +21,7 @@ export default function Navbar() {
     { label: t("features"), href: "#features" },
     { label: t("howItWorks"), href: "#how-it-works" },
     { label: t("pricing"), href: "#pricing" },
-    { label: "Blog", href: "https://redfortlabs.xyz/blog", external: true },
+    { label: t("blog"), href: "https://redfortlabs.xyz/blog", external: true },
   ];
 
   const branding = (
