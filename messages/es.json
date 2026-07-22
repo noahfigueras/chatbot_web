@@ -1,0 +1,367 @@
+{
+  "Navbar": {
+    "features": "Funcionalidades",
+    "howItWorks": "Cómo Funciona",
+    "pricing": "Precios",
+    "login": "Iniciar Sesión",
+    "signup": "Comenzar",
+    "dashboard": "Panel"
+  },
+  "Hero": {
+    "badge": "Plataforma de Chatbots IA",
+    "title": "Tu Cerebro. Ahora un Bot.",
+    "subtitle": "Sube documentos, añade tu conocimiento y despliega un chatbot IA personalizado en Telegram y WhatsApp en minutos. Sin necesidad de programar.",
+    "cta": "Crea Tu Chatbot",
+    "secondaryCta": "Ver Cómo Funciona",
+    "stats": "2+ plataformas · despliegue en 1 clic · impulsado por GPT-5.4"
+  },
+  "Features": {
+    "title": "Creado para emprendedores que se mueven rápido",
+    "subtitle": "Todo lo que necesitas para lanzar un asistente empresarial impulsado por IA.",
+    "items": {
+      "knowledge": {
+        "name": "Biblioteca de Conocimiento",
+        "desc": "Sube archivos .md o .txt. Escribe tu propio contenido. Tu chatbot aprende exactamente lo que le enseñas."
+      },
+      "multiChannel": {
+        "name": "Despliegue Multicanal",
+        "desc": "Despliega en Telegram y WhatsApp con un clic. Tu chatbot encuentra a tus clientes donde están."
+      },
+      "customPrompt": {
+        "name": "Personalidad Personalizada",
+        "desc": "Escribe un prompt de sistema que defina el tono, rol y límites de tu chatbot."
+      },
+      "analytics": {
+        "name": "Analíticas de Uso",
+        "desc": "Rastrea mensajes, monitorea el uso y sabe exactamente lo que hace tu chatbot."
+      }
+    }
+  },
+  "HowItWorks": {
+    "title": "De cero a chatbot en 3 minutos",
+    "subtitle": "Un proceso simple que cualquiera puede seguir.",
+    "steps": {
+      "create": {
+        "step": "01",
+        "title": "Crea un Chatbot",
+        "desc": "Dale un nombre y elige tu modelo de IA. Usamos GPT-5.4-nano para todos los chatbots."
+      },
+      "train": {
+        "step": "02",
+        "title": "Entrena con Conocimiento",
+        "desc": "Sube archivos, pega contenido y escribe un prompt de sistema. Tu chatbot usará esto para responder preguntas."
+      },
+      "deploy": {
+        "step": "03",
+        "title": "Despliega y Chatea",
+        "desc": "Activa tu chatbot y conéctalo a Telegram o WhatsApp. Empieza a hablar con tus clientes al instante."
+      }
+    }
+  },
+  "Pricing": {
+    "title": "Precios simples, sin sorpresas",
+    "subtitle": "Empieza gratis, mejora cuando crezcas.",
+    "monthly": "Mensual",
+    "yearly": "Anual",
+    "plans": {
+      "free": {
+        "name": "Gratis",
+        "price": "€0",
+        "description": "Perfecto para probar.",
+        "features": [
+          "5 chatbots",
+          "500 mensajes por bot / mes",
+          "10 MB de almacenamiento",
+          "Integración con Telegram y WhatsApp",
+          "Analíticas básicas"
+        ],
+        "cta": "Comenzar"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "€20",
+        "description": "Para negocios que necesitan más potencia.",
+        "features": [
+          "15 chatbots",
+          "5,000 mensajes por bot / mes",
+          "100 MB de almacenamiento",
+          "Integración con Telegram y WhatsApp",
+          "Soporte prioritario"
+        ],
+        "cta": "Actualizar a Pro"
+      },
+      "enterprise": {
+        "name": "Empresarial",
+        "price": "Personalizado",
+        "description": "Para grandes equipos y necesidades personalizadas.",
+        "features": [
+          "Chatbots ilimitados",
+          "Límites de mensajes personalizados",
+          "Almacenamiento personalizado",
+          "Soporte dedicado",
+          "Despliegue on-premise"
+        ],
+        "cta": "Contáctanos"
+      }
+    }
+  },
+  "CTA": {
+    "title": "Tu primer chatbot es gratis. Sin necesidad de tarjeta de crédito.",
+    "subtitle": "Comienza a construir tu asistente IA hoy. Crea, entrena y despliega en minutos — completamente gratis.",
+    "cta": "Crea Tu Chatbot"
+  },
+  "Footer": {
+    "description": "Entrena un chatbot IA personalizado con tus archivos, enlaces y redes sociales. Despliega en cualquier lugar con un clic.",
+    "builtBy": "Un producto de",
+    "parentCompany": "RedFortLabs",
+    "blog": "Blog",
+    "product": "Producto",
+    "productLinks": {
+      "features": "Funcionalidades",
+      "pricing": "Precios",
+      "howItWorks": "Cómo Funciona"
+    },
+    "company": "Empresa",
+    "companyLinks": {
+      "about": "Acerca de",
+      "contact": "Contacto",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos del Servicio"
+    },
+    "legal": "Legal",
+    "copyright": "© {year} ChatBot Pro. Todos los derechos reservados."
+  },
+  "Auth": {
+    "login": {
+      "title": "Bienvenido de nuevo",
+      "subtitle": "Inicia sesión en tu cuenta",
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "tu@ejemplo.com",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "Introduce tu contraseña",
+      "submit": "Iniciar Sesión",
+      "submitting": "Iniciando sesión...",
+      "noAccount": "¿No tienes cuenta?",
+      "signUp": "Regístrate",
+      "google": "Continuar con Google",
+      "error": "Correo o contraseña inválidos"
+    },
+    "signup": {
+      "title": "Crea tu cuenta",
+      "subtitle": "Empieza a construir tu chatbot IA",
+      "nameLabel": "Nombre Completo",
+      "namePlaceholder": "Juan Pérez",
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "tu@ejemplo.com",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "Crea una contraseña",
+      "submit": "Crear Cuenta",
+      "submitting": "Creando cuenta...",
+      "hasAccount": "¿Ya tienes cuenta?",
+      "signIn": "Iniciar Sesión",
+      "google": "Continuar con Google",
+      "error": "Algo salió mal. Intenta de nuevo."
+    }
+  },
+  "Dashboard": {
+    "welcome": "Bienvenido de nuevo, {name}",
+    "subtitle": "Esto es lo que está pasando con tus chatbots.",
+    "loading": "Cargando estadísticas...",
+    "stats": {
+      "total": "Total Chatbots",
+      "active": "Chatbots Activos",
+      "model": "Modelo",
+      "latest": "Último Bot"
+    },
+    "activeCount": "{count} activo(s)",
+    "draftCount": "{count} borrador(es)",
+    "stillInDraft": "{count} aún en borrador",
+    "allChatbots": "todos los chatbots",
+    "recentlyCreated": "creado más recientemente",
+    "chatbots": {
+      "title": "Tus Chatbots",
+      "subtitle": "Gestiona tu flota de chatbots",
+      "new": "+ Nuevo Chatbot",
+      "noChatbots": "Aún no hay chatbots. ¡Crea el primero!",
+      "createFirst": "Crear Chatbot",
+      "loading": "Cargando...",
+      "table": {
+        "name": "Nombre",
+        "status": "Estado",
+        "actions": "Acciones"
+      },
+      "status": {
+        "active": "activo",
+        "draft": "borrador",
+        "paused": "pausado"
+      },
+      "manage": "Gestionar"
+    }
+  },
+  "NewChatbot": {
+    "title": "Crear Nuevo Chatbot",
+    "subtitle": "Configura tu asistente IA con conocimiento y personalidad.",
+    "nameLabel": "Nombre del Chatbot",
+    "namePlaceholder": "ej. Bot de Atención al Cliente",
+    "descLabel": "Descripción (opcional)",
+    "descPlaceholder": "¿Qué hace este chatbot?",
+    "systemPromptLabel": "Prompt del Sistema",
+    "systemPromptPlaceholder": "Eres un asistente útil que...",
+    "systemPromptHint": "Esto define la personalidad, tono y reglas de tu chatbot.",
+    "knowledgeLabel": "Archivos de Conocimiento",
+    "writeTab": "Escribir",
+    "uploadTab": "Subir",
+    "writePlaceholder": "Pega o escribe tu contenido de conocimiento aquí...",
+    "uploadHint": "Soporta archivos .md y .txt",
+    "templateLabel": "o usa una plantilla",
+    "templatePlaceholder": "Selecciona una plantilla...",
+    "templates": {
+      "customerSupport": "Atención al Cliente",
+      "leadGen": "Generación de Leads",
+      "faq": "Bot de Preguntas Frecuentes",
+      "custom": "Personalizado"
+    },
+    "create": "Crear Chatbot",
+    "creating": "Creando..."
+  },
+  "ChatbotDetail": {
+    "back": "← Volver a Chatbots",
+    "notFound": "Chatbot no encontrado",
+    "tabs": {
+      "overview": "Resumen",
+      "knowledge": "Conocimiento",
+      "chat": "Chat",
+      "channels": "Canales"
+    },
+    "overview": {
+      "prompt": "Prompt del Sistema",
+      "noPrompt": "Sin prompt de sistema",
+      "knowledge": "Archivos de Conocimiento",
+      "noKnowledge": "Sin archivos de conocimiento",
+      "status": "Estado",
+      "model": "Modelo",
+      "created": "Creado"
+    },
+    "status": {
+      "active": "Activo",
+      "draft": "Borrador",
+      "paused": "Pausado"
+    },
+    "deploy": "Desplegar Chatbot",
+    "deploying": "Desplegando...",
+    "deployed": "Desplegado exitosamente",
+    "delete": "Eliminar Chatbot",
+    "deleting": "Eliminando...",
+    "confirmDelete": "¿Estás seguro? Esto eliminará el chatbot y todos sus datos."
+  },
+  "ChatPlayground": {
+    "title": "Chat de Prueba",
+    "inputPlaceholder": "Escribe un mensaje...",
+    "send": "Enviar",
+    "thinking": "Pensando...",
+    "error": "Error al enviar mensaje",
+    "noMessages": "Inicia una conversación con tu chatbot",
+    "notActive": "Este chatbot no está activo. Despliégalo primero."
+  },
+  "Billing": {
+    "title": "Facturación y Plan",
+    "currentPlan": "Plan Actual",
+    "plan": "Plan",
+    "status": "Estado",
+    "periodEnd": "Fin del Período Actual",
+    "manage": "Gestionar Suscripción",
+    "upgrade": "Actualizar a Pro",
+    "loading": "Cargando info de facturación...",
+    "noSubscription": "Estás en el plan Gratis.",
+    "plans": {
+      "free": "Gratis",
+      "pro": "Pro",
+      "enterprise": "Empresarial"
+    },
+    "statuses": {
+      "active": "Activo",
+      "past_due": "Vencido",
+      "canceled": "Cancelado",
+      "incomplete": "Incompleto",
+      "incomplete_expired": "Expirado",
+      "trialing": "Prueba",
+      "paused": "Pausado"
+    }
+  },
+  "Settings": {
+    "title": "Configuración",
+    "nameLabel": "Nombre Completo",
+    "namePlaceholder": "Tu nombre",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "Tu correo",
+    "save": "Guardar Cambios",
+    "saving": "Guardando...",
+    "saved": "Configuración guardada exitosamente",
+    "error": "Error al guardar configuración",
+    "profileSection": "Perfil",
+    "profileDesc": "Actualiza tu información personal."
+  },
+  "Sidebar": {
+    "dashboard": "Panel",
+    "chatbots": "Chatbots",
+    "billing": "Facturación",
+    "settings": "Configuración",
+    "signOut": "Cerrar Sesión",
+    "upgrade": "Actualizar a Pro"
+  },
+  "ChatbotsList": {
+    "title": "Tus Chatbots",
+    "subtitle": "Gestiona tu flota de chatbots",
+    "new": "+ Nuevo Chatbot",
+    "noChatbots": "Aún no hay chatbots. ¡Crea el primero!",
+    "createFirst": "Crear Chatbot",
+    "table": {
+      "name": "Nombre",
+      "status": "Estado",
+      "actions": "Acciones"
+    },
+    "status": {
+      "active": "activo",
+      "draft": "borrador",
+      "paused": "pausado"
+    },
+    "manage": "Gestionar"
+  },
+  "ChannelSetup": {
+    "title": "Configuración de Canales",
+    "telegram": {
+      "title": "Telegram",
+      "desc": "Conecta tu chatbot a Telegram.",
+      "connect": "Conectar Telegram",
+      "disconnect": "Desconectar",
+      "enabled": "Conectado",
+      "disabled": "No conectado"
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "desc": "Conecta tu chatbot a WhatsApp.",
+      "connect": "Conectar WhatsApp",
+      "disconnect": "Desconectar",
+      "enabled": "Conectado",
+      "disabled": "No conectado"
+    }
+  },
+  "Common": {
+    "loading": "Cargando...",
+    "error": "Algo salió mal",
+    "save": "Guardar",
+    "saving": "Guardando...",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "deleting": "Eliminando...",
+    "confirm": "Confirmar",
+    "back": "Volver",
+    "next": "Siguiente",
+    "close": "Cerrar",
+    "search": "Buscar",
+    "noResults": "Sin resultados",
+    "or": "o",
+    "yes": "Sí",
+    "no": "No"
+  }
+}
