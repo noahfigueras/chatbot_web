@@ -1,4 +1,11 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+
 export default function Hero() {
+  const t = useTranslations("Hero");
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-grid">
       <div className="absolute w-[600px] h-[600px] rounded-full bg-neon-cyan opacity-10 blur-[120px] pointer-events-none top-[-200px] right-[-100px] animate-float" />
@@ -9,48 +16,32 @@ export default function Hero() {
           <div className="space-y-8 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-cyan/10 border border-neon-cyan/20 text-neon-cyan text-sm font-medium">
               <span className="w-2 h-2 rounded-full bg-neon-cyan animate-pulse" />
-              AI-Powered Chatbots
+              {t("badge")}
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-              Turn your business into an{" "}
-              <span className="gradient-text">AI chatbot</span>
+              {t("title")}
             </h1>
 
             <p className="text-lg sm:text-xl text-text-muted max-w-xl leading-relaxed">
-              Train a custom AI chatbot with your files, links, and social media.
-              Deploy anywhere — your website, WhatsApp, or Slack — with one click.
+              {t("subtitle")}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
+              <Link
                 href="/signup"
                 className="group relative px-8 py-4 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-purple text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-neon-cyan/25"
               >
-                <span className="relative z-10">Create Your Chatbot</span>
+                <span className="relative z-10">{t("cta")}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-neon-purple to-neon-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </a>
+              </Link>
               <a
                 href="#features"
                 className="px-8 py-4 rounded-xl border border-border-cyan hover:border-neon-cyan/50 text-white font-semibold text-lg transition-all duration-300 text-center"
               >
-                See How It Works
+                {t("secondaryCta")}
               </a>
             </div>
-
-            {/*<div className="flex items-center gap-6 text-sm text-text-muted">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-neon-cyan/30 to-neon-purple/30 border border-neon-cyan/20 flex items-center justify-center text-xs font-medium text-neon-cyan"
-                  >
-                    {String.fromCharCode(64 + i)}
-                  </div>
-                ))}
-              </div>
-              <span>Trusted by <strong className="text-white">500+</strong> businesses</span>
-            </div>*/}
           </div>
 
           <div className="hidden lg:flex justify-center animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
@@ -70,31 +61,22 @@ export default function Hero() {
                 <div className="space-y-3">
                   <div className="flex justify-start">
                     <div className="bg-surface-2 rounded-2xl rounded-bl-sm px-4 py-3 max-w-[80%]">
-                      <p className="text-sm text-text-primary">
-                        Hi! How can I help you today?
-                      </p>
+                      <p className="text-sm text-text-primary">Hi! How can I help you today?</p>
                     </div>
                   </div>
                   <div className="flex justify-end">
                     <div className="bg-neon-cyan/10 border border-neon-cyan/20 rounded-2xl rounded-br-sm px-4 py-3 max-w-[80%]">
-                      <p className="text-sm text-text-primary">
-                        What are your business hours?
-                      </p>
+                      <p className="text-sm text-text-primary">What are your business hours?</p>
                     </div>
                   </div>
                   <div className="flex justify-start">
                     <div className="bg-surface-2 rounded-2xl rounded-bl-sm px-4 py-3 max-w-[80%]">
-                      <p className="text-sm text-text-primary">
-                        We&apos;re open Mon-Fri, 9 AM to 6 PM EST. We also have
-                        24/7 support for Pro plans!
-                      </p>
+                      <p className="text-sm text-text-primary">We&apos;re open Mon-Fri, 9 AM to 6 PM EST. We also have 24/7 support for Pro plans!</p>
                     </div>
                   </div>
                   <div className="flex justify-end">
                     <div className="bg-neon-cyan/10 border border-neon-cyan/20 rounded-2xl rounded-br-sm px-4 py-3 max-w-[80%]">
-                      <p className="text-sm text-text-primary">
-                        Can I book an appointment?
-                      </p>
+                      <p className="text-sm text-text-primary">Can I book an appointment?</p>
                     </div>
                   </div>
                 </div>
