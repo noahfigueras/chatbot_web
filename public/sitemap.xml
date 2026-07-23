@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://chatbots.redfortlabs.xyz/en</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chatbots.redfortlabs.xyz/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://chatbots.redfortlabs.xyz/es" />
+  </url>
+  <url>
+    <loc>https://chatbots.redfortlabs.xyz/es</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chatbots.redfortlabs.xyz/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://chatbots.redfortlabs.xyz/es" />
+  </url>
+  <url>
+    <loc>https://chatbots.redfortlabs.xyz/en/signup</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chatbots.redfortlabs.xyz/en/signup" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://chatbots.redfortlabs.xyz/es/signup" />
+  </url>
+  <url>
+    <loc>https://chatbots.redfortlabs.xyz/es/signup</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chatbots.redfortlabs.xyz/en/signup" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://chatbots.redfortlabs.xyz/es/signup" />
+  </url>
+  <url>
+    <loc>https://chatbots.redfortlabs.xyz/en/login</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chatbots.redfortlabs.xyz/en/login" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://chatbots.redfortlabs.xyz/es/login" />
+  </url>
+  <url>
+    <loc>https://chatbots.redfortlabs.xyz/es/login</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chatbots.redfortlabs.xyz/en/login" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://chatbots.redfortlabs.xyz/es/login" />
+  </url>
+</urlset>
